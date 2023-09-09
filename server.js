@@ -29,7 +29,7 @@ function createRandomUser() {
   };
 }
 app.get("/messages/unread", async (request, response) => {
-  const count = Math.floor(Math.random() * 10);
+  const count = Math.floor(Math.random() * 3);
   const result = faker.helpers.multiple(createRandomUser, {
     count,
   });
