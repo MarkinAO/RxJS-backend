@@ -30,9 +30,14 @@ function createRandomUser() {
 }
 app.get("/messages/unread", async (request, response) => {
   const count = Math.floor(Math.random() * 3);
-  const result = faker.helpers.multiple(createRandomUser, {
-    count,
-  });
+  const messages = faker.helpers.multiple(createRandomUser, {
+      count,
+    });
+  const result = {
+    'status': 'ok',
+    'timestamp': new Date(),
+    messages
+  }
   response.send(JSON.stringify(result)).end();
 });
 
